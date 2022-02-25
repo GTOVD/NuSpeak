@@ -1,0 +1,74 @@
+body {
+    background-color: black;
+}
+
+.navbar-main {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    box-shadow: 0 10px 10px 0 rgba(56, 56, 56, 0.452);
+}
+.navbar-logo {
+    height: 50px;
+    justify-content: left;
+    padding-left: 20px;
+}
+.navbar-searchbar {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border: transparent;
+}
+.navbar-searchfield {
+    background-color: black;
+    border: none;
+    color: #eeeeee;
+    width: 300px;
+    padding-left: 10px;
+}
+.navbar-icon {
+    height: 20px;
+    color: #be9e44;
+}
+.navbar-searchbutton {
+    border: none;
+    background-color: rgb(68, 68, 68);
+}
+.navbar-navdiv {
+    display: flex;
+    width: 300px;
+    justify-content: right;
+    padding-right: 20px;
+}
+.navbar-navdivlogin {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.navbar-login {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-color: #be9e44;
+    color: #be9e44;
+    background-color: #1a1a1a;
+    padding-right: 10px;
+    padding-left: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+}
+.navbar-register {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-color: #be9e44;
+    color: #be9e44;
+    background-color: #1a1a1a;
+    padding-right: 10px;
+    padding-left: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+}
