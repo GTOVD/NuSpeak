@@ -109,10 +109,13 @@ body,
 .welcome-feed {
     width: 640px;
     height: 100%;
+    margin-left: 15px;
 }
 .welcome-community {
     width: 312px;
+    min-width: 312px;
     height: 100%;
+    margin-right: 15px;
 }
 .feed {
     background-color: #1a1a1a;
@@ -153,4 +156,7 @@ body,
     resize: vertical;
     min-height: 122px;
     outline: none;
+}
+.text {
+    color: #d7dadc;
 }

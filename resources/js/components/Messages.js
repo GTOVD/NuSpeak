@@ -4,8 +4,10 @@ import "./../../css/app.css";
 export default function Messages() {
     return (
         <>
-            <h1>Test message</h1>
-            <p>Random stuff typed out here to look like a paragraph.</p>
+            <h1 className="text">Test message</h1>
+            <p className="text">
+                Random stuff typed out here to look like a paragraph.
+            </p>
         </>
     );
 }
