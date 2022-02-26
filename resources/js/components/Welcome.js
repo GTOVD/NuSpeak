@@ -1,5 +1,6 @@
 import React from "react";
 import "./../../css/app.css";
+import Feed from "./Feed";
 
 export default function Welcome() {
     const [count, setCount] = React.useState("");
@@ -29,50 +30,13 @@ export default function Welcome() {
     return (
         <div className="welcome-main">
             <div className="welcome-feed">
-                <div className="feed">
-                    <div className="feed-contents">
-                        <input
-                            value={count}
-                            onChange={handleChange}
-                            placeholder="Create Post"
-                            className="createpost"
-                        />
-                        <textarea
-                            className="textarea"
-                            placeholder="Text (optional)"
-                        />
-                    </div>
-                </div>
-                <div className="feed">
-                    <div className="feed-contents">
-                        <input
-                            value={count}
-                            onChange={handleChange}
-                            placeholder="Create Post"
-                            className="createpost"
-                        />
-                        <textarea
-                            className="textarea"
-                            placeholder="Text (optional)"
-                        />
-                    </div>
-                </div>
+                <Feed />
+                <Feed />
+                <Feed />
             </div>
             <div className="welcome-community">
-                <div className="feed">
-                    <div className="feed-contents">
-                        <input
-                            value={count}
-                            onChange={handleChange}
-                            placeholder="Create Post"
-                            className="createpost"
-                        />
-                        <textarea
-                            className="textarea"
-                            placeholder="Text (optional)"
-                        />
-                    </div>
-                </div>
+                <Feed />
+                <Feed />
             </div>
         </div>
     );
