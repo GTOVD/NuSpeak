@@ -5438,9 +5438,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("main", {
     className: "app-main",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Welcome__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "app-content",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Welcome__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+    })]
   });
 }
 
@@ -5540,6 +5543,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Welcome() {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(""),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -5569,12 +5573,57 @@ function Welcome() {
       window.removeEventListener("storage", onStorageUpdate);
     };
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "welcome-main",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-      value: count,
-      onChange: handleChange
-    })
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "welcome-feed",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "feed",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "feed-contents",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            value: count,
+            onChange: handleChange,
+            placeholder: "Create Post",
+            className: "createpost"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+            className: "textarea",
+            placeholder: "Text (optional)"
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "feed",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "feed-contents",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            value: count,
+            onChange: handleChange,
+            placeholder: "Create Post",
+            className: "createpost"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+            className: "textarea",
+            placeholder: "Text (optional)"
+          })]
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "welcome-community",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "feed",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "feed-contents",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            value: count,
+            onChange: handleChange,
+            placeholder: "Create Post",
+            className: "createpost"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+            className: "textarea",
+            placeholder: "Text (optional)"
+          })]
+        })
+      })
+    })]
   });
 }
 
@@ -10647,7 +10696,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    background-color: black;\n}\n\n.navbar-main {\n    position: fixed;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    align-items: center;\n    justify-content: center;\n    background-color: #1a1a1a;\n    box-shadow: 0 10px 10px 0 rgba(56, 56, 56, 0.452);\n}\n.navbar-logo {\n    height: 50px;\n    justify-content: left;\n    padding-left: 20px;\n}\n.navbar-searchbar {\n    display: flex;\n    width: 100%;\n    justify-content: center;\n    border: transparent;\n}\n.navbar-searchfield {\n    background-color: black;\n    border: none;\n    color: #eeeeee;\n    width: 300px;\n    padding-left: 10px;\n}\n.navbar-icon {\n    height: 20px;\n    color: #be9e44;\n}\n.navbar-searchbutton {\n    border: none;\n    background-color: rgb(68, 68, 68);\n}\n.navbar-navdiv {\n    display: flex;\n    width: 300px;\n    justify-content: right;\n    padding-right: 20px;\n    -moz-column-gap: 15px;\n         column-gap: 15px;\n}\n.navbar-login {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.navbar-register {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.welcome-main {\n    position: relative;\n    display: flex;\n    top: 50px;\n    padding: 100px;\n    align-items: center;\n    justify-content: center;\n    -moz-column-gap: 20px;\n         column-gap: 20px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody,\n.body {\n    height: 100%;\n    width: 100%;\n    background-color: #000000;\n}\n.main {\n    height: 100%;\n    width: 100%;\n}\n.app-main {\n    display: block;\n    height: 100%;\n}\n.app-content {\n    position: relative;\n    top: 50px;\n    z-index: 1;\n    width: 100%;\n    height: 100%;\n}\n\n.navbar-main {\n    position: fixed;\n    z-index: 999;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    align-items: center;\n    justify-content: center;\n    background-color: #1a1a1a;\n    /*box-shadow: 0 10px 10px 0 rgba(56, 56, 56, 0.452);*/\n}\n.navbar-logo {\n    height: 50px;\n    justify-content: left;\n    padding-left: 20px;\n}\n.navbar-searchbar {\n    display: flex;\n    width: 100%;\n    justify-content: center;\n    -moz-column-gap: 2px;\n         column-gap: 2px;\n    border: none;\n}\n.navbar-searchfield {\n    background-color: black;\n    border: none;\n    outline: none;\n    border-radius: 4px;\n    color: #343536;\n    width: 300px;\n    padding-left: 10px;\n}\n.navbar-icon {\n    height: 20px;\n    border-radius: 4px;\n    border: none;\n    color: #be9e44;\n}\n.navbar-searchbutton {\n    border: none;\n    border-radius: 4px;\n    background-color: rgb(68, 68, 68);\n}\n.navbar-navdiv {\n    display: flex;\n    width: 300px;\n    justify-content: right;\n    padding-right: 20px;\n    -moz-column-gap: 15px;\n         column-gap: 15px;\n}\n.navbar-login {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.navbar-register {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.welcome-main {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    justify-content: center;\n    -moz-column-gap: 25px;\n         column-gap: 25px;\n}\n.welcome-feed {\n    width: 640px;\n    height: 100%;\n}\n.welcome-community {\n    width: 312px;\n    height: 100%;\n}\n.feed {\n    background-color: #1a1a1a;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    display: block;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.feed-contents {\n    margin: 16px;\n    align-items: center;\n    justify-content: center;\n}\n.createpost {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    box-shadow: none;\n    box-sizing: border-box;\n    display: flex;\n    flex-grow: 1;\n    height: 38px;\n    margin-right: 8px;\n    outline: none;\n    padding: 0 16px;\n    width: 100%;\n    flex-direction: row;\n    margin-bottom: 15px;\n}\n.textarea {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    padding: 8px 16px;\n    width: 100%;\n    resize: vertical;\n    min-height: 122px;\n    outline: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

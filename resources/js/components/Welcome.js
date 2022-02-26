@@ -28,7 +28,52 @@ export default function Welcome() {
 
     return (
         <div className="welcome-main">
-            <input value={count} onChange={handleChange} />
+            <div className="welcome-feed">
+                <div className="feed">
+                    <div className="feed-contents">
+                        <input
+                            value={count}
+                            onChange={handleChange}
+                            placeholder="Create Post"
+                            className="createpost"
+                        />
+                        <textarea
+                            className="textarea"
+                            placeholder="Text (optional)"
+                        />
+                    </div>
+                </div>
+                <div className="feed">
+                    <div className="feed-contents">
+                        <input
+                            value={count}
+                            onChange={handleChange}
+                            placeholder="Create Post"
+                            className="createpost"
+                        />
+                        <textarea
+                            className="textarea"
+                            placeholder="Text (optional)"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div className="welcome-community">
+                <div className="feed">
+                    <div className="feed-contents">
+                        <input
+                            value={count}
+                            onChange={handleChange}
+                            placeholder="Create Post"
+                            className="createpost"
+                        />
+                        <textarea
+                            className="textarea"
+                            placeholder="Text (optional)"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

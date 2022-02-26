@@ -6,10 +6,12 @@ import "./../../css/app.css";
 
 function App() {
     return (
-        <div className="app-main">
+        <main className="app-main">
             <Navbar />
-            <Welcome />
-        </div>
+            <div className="app-content">
+                <Welcome />
+            </div>
+        </main>
     );
 }
 
