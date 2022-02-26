@@ -43,10 +43,7 @@ body {
     width: 300px;
     justify-content: right;
     padding-right: 20px;
-}
-.navbar-navdivlogin {
-    padding-right: 15px;
-    padding-left: 15px;
+    column-gap: 15px;
 }
 .navbar-login {
     border-top-left-radius: 20px;
@@ -75,4 +72,13 @@ body {
     height: 30px;
     white-space: nowrap;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+}
+.welcome-main {
+    position: relative;
+    display: flex;
+    top: 50px;
+    padding: 100px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
 }
