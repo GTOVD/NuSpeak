@@ -1,8 +1,19 @@
+import axios from "axios";
 import React from "react";
 import "./../../css/app.css";
 
 export default function Post() {
     const [count, setCount] = React.useState("");
+    const [title, setTitle] = React.useState("");
+    const [post, setPost] = React.useState("");
+
+    const handleTitle = (event) => {
+        setTitle(event.target.value);
+    };
+
+    const handlePost = (event) => {
+        setPost(event.target.value);
+    };
 
     const onStorageUpdate = (event) => {
         const { key, newValue } = event;
@@ -17,6 +28,7 @@ export default function Post() {
     };
 
     React.useEffect(() => {
+        axios.get("/get/post/list").then((response) => {});
         setCount(localStorage.getItem("count") || "");
         window.addEventListener("storage", onStorageUpdate);
         return () => {
@@ -25,14 +37,23 @@ export default function Post() {
     }, []);
 
     return (
-        <>
-            <input
-                value={count}
-                onChange={handleChange}
-                placeholder="Create Post"
-                className="createpost"
-            />
-            <textarea className="textarea" placeholder="Text (optional)" />
-        </>
+        <div className="feed">
+            <div className="feed-contents">
+                <form onSubmit={handlePost}>
+                    <input
+                        value={title}
+                        onChange={handleTitle}
+                        placeholder="Create Post"
+                        className="createpost"
+                    />
+                    <textarea
+                        value={post}
+                        onChange={handlePost}
+                        className="textarea"
+                        placeholder="Text (optional)"
+                    />
+                </form>
+            </div>
+        </div>
     );
 }

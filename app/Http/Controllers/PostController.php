@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Log;
+use Exception;
 
 class PostController extends Controller
 {
@@ -47,6 +49,12 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        try {
+            $list = Post::all();
+            return response()->json($list);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 
     /**
