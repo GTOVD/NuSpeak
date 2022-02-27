@@ -3,55 +3,53 @@ import React from "react";
 import "./../../css/app.css";
 
 export default function Post() {
-    const [count, setCount] = React.useState("");
     const [title, setTitle] = React.useState("");
-    const [post, setPost] = React.useState("");
-
-    const handleTitle = (event) => {
-        setTitle(event.target.value);
-    };
-
-    const handlePost = (event) => {
-        setPost(event.target.value);
-    };
-
-    const onStorageUpdate = (event) => {
-        const { key, newValue } = event;
-        if (key === "count") {
-            setCount(newValue);
-        }
-    };
+    const [post, setPost] = React.useState({
+        title: "",
+        post: "",
+    });
 
     const handleChange = (event) => {
-        setCount(event.target.value);
-        localStorage.setItem("count", event.target.value);
+        const { name, value, type, checked } = event.target;
+        setPost((prevState) => {
+            return {
+                ...prevState,
+                [name]: type === "checkbox" ? checked : value,
+            };
+        });
     };
 
-    React.useEffect(() => {
-        axios.get("/get/post/list").then((response) => {});
-        setCount(localStorage.getItem("count") || "");
-        window.addEventListener("storage", onStorageUpdate);
-        return () => {
-            window.removeEventListener("storage", onStorageUpdate);
-        };
-    }, []);
+    React.useEffect(() => {}, []);
+
+    function handleSubmit(event) {
+        event.preventDefault();
+    }
+
+    function handleClick() {
+        //axios put
+    }
 
     return (
         <div className="feed">
             <div className="feed-contents">
-                <form onSubmit={handlePost}>
+                <form onSubmit={handleSubmit}>
                     <input
-                        value={title}
-                        onChange={handleTitle}
+                        value={post.title}
+                        onChange={handleChange}
                         placeholder="Create Post"
-                        className="createpost"
+                        className="feed-title"
+                        name="title"
                     />
                     <textarea
-                        value={post}
-                        onChange={handlePost}
-                        className="textarea"
+                        value={post.post}
+                        onChange={handleChange}
+                        className="feed-textarea"
                         placeholder="Text (optional)"
+                        name="post"
                     />
+                    <button className="feed-button" onClick={handleClick}>
+                        Post
+                    </button>
                 </form>
             </div>
         </div>

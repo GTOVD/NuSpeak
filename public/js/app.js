@@ -5635,6 +5635,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../css/app.css */ "./resources/css/app.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5655,65 +5661,59 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Post() {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__.useState(""),
       _React$useState2 = _slicedToArray(_React$useState, 2),
-      count = _React$useState2[0],
-      setCount = _React$useState2[1];
+      title = _React$useState2[0],
+      setTitle = _React$useState2[1];
 
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1__.useState(""),
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1__.useState({
+    title: "",
+    post: ""
+  }),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
-      title = _React$useState4[0],
-      setTitle = _React$useState4[1];
-
-  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_1__.useState(""),
-      _React$useState6 = _slicedToArray(_React$useState5, 2),
-      post = _React$useState6[0],
-      setPost = _React$useState6[1];
-
-  var handleTitle = function handleTitle(event) {
-    setTitle(event.target.value);
-  };
-
-  var handlePost = function handlePost(event) {
-    setPost(event.target.value);
-  };
-
-  var onStorageUpdate = function onStorageUpdate(event) {
-    var key = event.key,
-        newValue = event.newValue;
-
-    if (key === "count") {
-      setCount(newValue);
-    }
-  };
+      post = _React$useState4[0],
+      setPost = _React$useState4[1];
 
   var handleChange = function handleChange(event) {
-    setCount(event.target.value);
-    localStorage.setItem("count", event.target.value);
+    var _event$target = event.target,
+        name = _event$target.name,
+        value = _event$target.value,
+        type = _event$target.type,
+        checked = _event$target.checked;
+    setPost(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, _defineProperty({}, name, type === "checkbox" ? checked : value));
+    });
   };
 
-  react__WEBPACK_IMPORTED_MODULE_1__.useEffect(function () {
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/get/post/list").then(function (response) {});
-    setCount(localStorage.getItem("count") || "");
-    window.addEventListener("storage", onStorageUpdate);
-    return function () {
-      window.removeEventListener("storage", onStorageUpdate);
-    };
-  }, []);
+  react__WEBPACK_IMPORTED_MODULE_1__.useEffect(function () {}, []);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  function handleClick() {//axios put
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "feed",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "feed-contents",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-        onSubmit: handlePost,
+        onSubmit: handleSubmit,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          value: title,
-          onChange: handleTitle,
+          value: post.title,
+          onChange: handleChange,
           placeholder: "Create Post",
-          className: "createpost"
+          className: "feed-title",
+          name: "title"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
-          value: post,
-          onChange: handlePost,
-          className: "textarea",
-          placeholder: "Text (optional)"
+          value: post.post,
+          onChange: handleChange,
+          className: "feed-textarea",
+          placeholder: "Text (optional)",
+          name: "post"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "feed-button",
+          onClick: handleClick,
+          children: "Post"
         })]
       })
     })
@@ -10862,7 +10862,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody,\n.body {\n    height: 100%;\n    width: 100%;\n    background-color: #000000;\n}\n.main {\n    height: 100%;\n    width: 100%;\n}\n.app-main {\n    display: block;\n    height: 100%;\n}\n.app-content {\n    position: relative;\n    top: 50px;\n    z-index: 1;\n    width: 100%;\n    height: 100%;\n}\n\n.navbar-main {\n    position: fixed;\n    z-index: 999;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    align-items: center;\n    justify-content: center;\n    background-color: #1a1a1a;\n    /*box-shadow: 0 10px 10px 0 rgba(56, 56, 56, 0.452);*/\n}\n.navbar-logo {\n    height: 50px;\n    justify-content: left;\n    padding-left: 20px;\n}\n.navbar-searchbar {\n    display: flex;\n    width: 100%;\n    justify-content: center;\n    -moz-column-gap: 2px;\n         column-gap: 2px;\n    border: none;\n}\n.navbar-searchfield {\n    background-color: black;\n    border: none;\n    outline: none;\n    border-radius: 4px;\n    color: #343536;\n    width: 300px;\n    padding-left: 10px;\n}\n.navbar-icon {\n    height: 20px;\n    border-radius: 4px;\n    border: none;\n    color: #be9e44;\n}\n.navbar-searchbutton {\n    border: none;\n    border-radius: 4px;\n    background-color: rgb(68, 68, 68);\n}\n.navbar-navdiv {\n    display: flex;\n    width: 300px;\n    justify-content: right;\n    padding-right: 20px;\n    -moz-column-gap: 15px;\n         column-gap: 15px;\n}\n.navbar-login {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.navbar-register {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.welcome-main {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    justify-content: center;\n    -moz-column-gap: 25px;\n         column-gap: 25px;\n}\n.welcome-feed {\n    width: 640px;\n    height: 100%;\n    margin-left: 15px;\n}\n.welcome-community {\n    width: 312px;\n    min-width: 312px;\n    height: 100%;\n    margin-right: 15px;\n}\n.feed {\n    background-color: #1a1a1a;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    display: block;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.feed-contents {\n    margin: 16px;\n    align-items: center;\n    justify-content: center;\n}\n.createpost {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    box-shadow: none;\n    box-sizing: border-box;\n    display: flex;\n    flex-grow: 1;\n    height: 38px;\n    margin-right: 8px;\n    outline: none;\n    padding: 0 16px;\n    width: 100%;\n    flex-direction: row;\n    margin-bottom: 15px;\n}\n.textarea {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    padding: 8px 16px;\n    width: 100%;\n    resize: vertical;\n    min-height: 122px;\n    outline: none;\n}\n.text {\n    color: #d7dadc;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody,\n.body {\n    height: 100%;\n    width: 100%;\n    background-color: #0a0a0a;\n}\n.main {\n    height: 100%;\n    width: 100%;\n}\n.app-main {\n    display: block;\n    height: 100%;\n}\n.app-content {\n    position: relative;\n    top: 50px;\n    z-index: 1;\n    width: 100%;\n    height: 100%;\n}\n\n.navbar-main {\n    position: fixed;\n    z-index: 999;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    align-items: center;\n    justify-content: center;\n    background-color: #1a1a1a;\n    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);\n}\n.navbar-logo {\n    height: 50px;\n    justify-content: left;\n    padding-left: 20px;\n}\n.navbar-searchbar {\n    display: flex;\n    width: 100%;\n    justify-content: center;\n    -moz-column-gap: 2px;\n         column-gap: 2px;\n    border: none;\n}\n.navbar-searchfield {\n    background-color: black;\n    border: none;\n    outline: none;\n    border-radius: 4px;\n    color: #343536;\n    width: 300px;\n    padding-left: 10px;\n}\n.navbar-icon {\n    height: 20px;\n    border-radius: 4px;\n    border: none;\n    color: #be9e44;\n}\n.navbar-searchbutton {\n    border: none;\n    border-radius: 4px;\n    background-color: rgb(68, 68, 68);\n}\n.navbar-navdiv {\n    display: flex;\n    width: 300px;\n    justify-content: right;\n    padding-right: 20px;\n    -moz-column-gap: 15px;\n         column-gap: 15px;\n}\n.navbar-login {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.navbar-register {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.welcome-main {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    justify-content: center;\n    -moz-column-gap: 25px;\n         column-gap: 25px;\n}\n.welcome-feed {\n    width: 640px;\n    height: 100%;\n    margin-left: 15px;\n}\n.welcome-community {\n    width: 312px;\n    min-width: 312px;\n    height: 100%;\n    margin-right: 15px;\n}\n.feed {\n    background-color: #1a1a1a;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    display: block;\n    margin-top: 15px;\n    margin-bottom: 15px;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.feed-contents {\n    margin: 16px;\n    align-items: center;\n    justify-content: center;\n}\n.feed-title {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    box-shadow: none;\n    box-sizing: border-box;\n    display: flex;\n    flex-grow: 1;\n    height: 38px;\n    margin-right: 8px;\n    outline: none;\n    padding: 0 16px;\n    width: 100%;\n    flex-direction: row;\n    margin-bottom: 15px;\n}\n.feed-textarea {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    padding: 8px 16px;\n    width: 100%;\n    resize: vertical;\n    min-height: 122px;\n    outline: none;\n}\n.text {\n    color: #d7dadc;\n}\n.feed-button {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
