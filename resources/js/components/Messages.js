@@ -6,8 +6,25 @@ export default function Messages(props) {
         <>
             <div className="feed">
                 <div className="feed-contents">
-                    <h1 className="text">{props.title}</h1>
-                    <p className="text">{props.post}</p>
+                    <div className="feed-top"></div>
+                    <div className="feed-center">
+                        {props.title && (
+                            <h1 className="feed-postTitle">{props.title}</h1>
+                        )}
+                        {
+                            <img
+                                //src={`./${props.image}`}
+                                //src={props.image}
+                                src="https://i.imgflip.com/30b1gx.jpg"
+                                alt="image"
+                                className="feed-image"
+                            />
+                        }
+                        {props.post && (
+                            <p className="feed-postBody">{props.post}</p>
+                        )}
+                    </div>
+                    <div className="feed-bottom"></div>
                 </div>
             </div>
         </>

@@ -22,7 +22,6 @@ export default function Welcome() {
     return (
         <>
             <Post />
-
             {messages}
         </>
     );

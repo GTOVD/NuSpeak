@@ -5605,12 +5605,25 @@ function Messages(props) {
       className: "feed",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "feed-contents",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-          className: "text",
-          children: props.title
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-          className: "text",
-          children: props.post
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "feed-top"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "feed-center",
+          children: [props.title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+            className: "feed-postTitle",
+            children: props.title
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            //src={`./${props.image}`}
+            //src={props.image}
+            src: "https://i.imgflip.com/30b1gx.jpg",
+            alt: "image",
+            className: "feed-image"
+          }), props.post && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            className: "feed-postBody",
+            children: props.post
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "feed-bottom"
         })]
       })
     })
@@ -5666,7 +5679,8 @@ function Post() {
 
   var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1__.useState({
     title: "",
-    post: ""
+    post: "",
+    image: "https://preview.redd.it/kaopcso5hqw61.jpg?width=640&crop=smart&auto=webp&s=cbb5b1d898cd15644f5a434366ac45965b4915d2"
   }),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
       post = _React$useState4[0],
@@ -5698,22 +5712,30 @@ function Post() {
       className: "feed-contents",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         onSubmit: handleSubmit,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          value: post.title,
-          onChange: handleChange,
-          placeholder: "Create Post",
-          className: "feed-title",
-          name: "title"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
-          value: post.post,
-          onChange: handleChange,
-          className: "feed-textarea",
-          placeholder: "Text (optional)",
-          name: "post"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: "feed-button",
-          onClick: handleClick,
-          children: "Post"
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "feed-top"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "feed-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            value: post.title,
+            onChange: handleChange,
+            placeholder: "Create Post",
+            className: "feed-title",
+            name: "title"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+            value: post.post,
+            onChange: handleChange,
+            className: "feed-textarea",
+            placeholder: "Text (optional)",
+            name: "post"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "feed-bottom",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "feed-button",
+            onClick: handleClick,
+            children: "Post"
+          })
         })]
       })
     })
@@ -10862,7 +10884,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody,\n.body {\n    height: 100%;\n    width: 100%;\n    background-color: #0a0a0a;\n}\n.main {\n    height: 100%;\n    width: 100%;\n}\n.app-main {\n    display: block;\n    height: 100%;\n}\n.app-content {\n    position: relative;\n    top: 50px;\n    z-index: 1;\n    width: 100%;\n    height: 100%;\n}\n\n.navbar-main {\n    position: fixed;\n    z-index: 999;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    align-items: center;\n    justify-content: center;\n    background-color: #1a1a1a;\n    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);\n}\n.navbar-logo {\n    height: 50px;\n    justify-content: left;\n    padding-left: 20px;\n}\n.navbar-searchbar {\n    display: flex;\n    width: 100%;\n    justify-content: center;\n    -moz-column-gap: 2px;\n         column-gap: 2px;\n    border: none;\n}\n.navbar-searchfield {\n    background-color: black;\n    border: none;\n    outline: none;\n    border-radius: 4px;\n    color: #343536;\n    width: 300px;\n    padding-left: 10px;\n}\n.navbar-icon {\n    height: 20px;\n    border-radius: 4px;\n    border: none;\n    color: #be9e44;\n}\n.navbar-searchbutton {\n    border: none;\n    border-radius: 4px;\n    background-color: rgb(68, 68, 68);\n}\n.navbar-navdiv {\n    display: flex;\n    width: 300px;\n    justify-content: right;\n    padding-right: 20px;\n    -moz-column-gap: 15px;\n         column-gap: 15px;\n}\n.navbar-login {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.navbar-register {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.welcome-main {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    justify-content: center;\n    -moz-column-gap: 25px;\n         column-gap: 25px;\n}\n.welcome-feed {\n    width: 640px;\n    height: 100%;\n    margin-left: 15px;\n}\n.welcome-community {\n    width: 312px;\n    min-width: 312px;\n    height: 100%;\n    margin-right: 15px;\n}\n.feed {\n    background-color: #1a1a1a;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    display: block;\n    margin-top: 15px;\n    margin-bottom: 15px;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.feed-contents {\n    margin: 16px;\n    align-items: center;\n    justify-content: center;\n}\n.feed-title {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    box-shadow: none;\n    box-sizing: border-box;\n    display: flex;\n    flex-grow: 1;\n    height: 38px;\n    margin-right: 8px;\n    outline: none;\n    padding: 0 16px;\n    width: 100%;\n    flex-direction: row;\n    margin-bottom: 15px;\n}\n.feed-textarea {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    padding: 8px 16px;\n    width: 100%;\n    resize: vertical;\n    min-height: 122px;\n    outline: none;\n}\n.text {\n    color: #d7dadc;\n}\n.feed-button {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody,\n.body {\n    height: 100%;\n    width: 100%;\n    background-color: #0a0a0a;\n}\n.main {\n    height: 100%;\n    width: 100%;\n}\n.app-main {\n    display: block;\n    height: 100%;\n}\n.app-content {\n    position: relative;\n    top: 50px;\n    z-index: 1;\n    width: 100%;\n    height: 100%;\n}\n\n.navbar-main {\n    position: fixed;\n    z-index: 999;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    align-items: center;\n    justify-content: center;\n    background-color: #1a1a1a;\n    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);\n}\n.navbar-logo {\n    height: 50px;\n    justify-content: left;\n    padding-left: 20px;\n}\n.navbar-searchbar {\n    display: flex;\n    width: 100%;\n    justify-content: center;\n    -moz-column-gap: 2px;\n         column-gap: 2px;\n    border: none;\n}\n.navbar-searchfield {\n    background-color: black;\n    border: none;\n    outline: none;\n    border-radius: 4px;\n    color: #343536;\n    width: 300px;\n    padding-left: 10px;\n}\n.navbar-icon {\n    height: 20px;\n    border-radius: 4px;\n    border: none;\n    color: #be9e44;\n}\n.navbar-searchbutton {\n    border: none;\n    border-radius: 4px;\n    background-color: rgb(68, 68, 68);\n}\n.navbar-navdiv {\n    display: flex;\n    width: 300px;\n    justify-content: right;\n    padding-right: 20px;\n    -moz-column-gap: 15px;\n         column-gap: 15px;\n}\n.navbar-login {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.navbar-register {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.welcome-main {\n    display: flex;\n    width: 100%;\n    height: 100%;\n    justify-content: center;\n    -moz-column-gap: 25px;\n         column-gap: 25px;\n}\n.welcome-feed {\n    width: 640px;\n    height: 100%;\n    margin-left: 15px;\n}\n.welcome-community {\n    width: 312px;\n    min-width: 312px;\n    height: 100%;\n    margin-right: 15px;\n}\n.feed {\n    background-color: #1a1a1a;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    display: block;\n    margin-top: 15px;\n    margin-bottom: 15px;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.feed-contents {\n    margin: 16px;\n    align-items: center;\n    justify-content: center;\n}\n.feed-title {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    border: 1px solid #343536;\n    box-shadow: none;\n    box-sizing: border-box;\n    display: flex;\n    flex-grow: 1;\n    height: 38px;\n    margin-right: 8px;\n    outline: none;\n    padding: 0 16px;\n    width: 100%;\n    flex-direction: row;\n    margin-bottom: 15px;\n}\n.feed-textarea {\n    background-color: #2a2a2a2a;\n    color: #d7dadc;\n    border-radius: 4px;\n    padding: 8px 16px;\n    width: 100%;\n    resize: vertical;\n    min-height: 122px;\n    outline: none;\n}\n.feed-postTitle {\n    color: #d7dadc;\n    height: 100%;\n    width: 100%;\n}\n.feed-postBody {\n    color: #d7dadc;\n}\n.feed-image {\n    height: 100%;\n    width: 100%;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n\n.feed-button {\n    border-top-left-radius: 20px;\n    border-bottom-left-radius: 20px;\n    border-top-right-radius: 20px;\n    border-bottom-right-radius: 20px;\n    border-color: #be9e44;\n    color: #be9e44;\n    background-color: #1a1a1a;\n    padding-right: 10px;\n    padding-left: 10px;\n    height: 30px;\n    white-space: nowrap;\n    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);\n}\n.feed-top {\n}\n.feed-center {\n    margin: 15px;\n}\n.feed-bottom {\n    display: flex;\n    width: 100%;\n    align-content: center;\n    justify-content: right;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

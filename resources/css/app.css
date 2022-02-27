@@ -158,9 +158,21 @@ body,
     min-height: 122px;
     outline: none;
 }
-.text {
+.feed-postTitle {
+    color: #d7dadc;
+    height: 100%;
+    width: 100%;
+}
+.feed-postBody {
     color: #d7dadc;
 }
+.feed-image {
+    height: 100%;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .feed-button {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -174,4 +186,15 @@ body,
     height: 30px;
     white-space: nowrap;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+}
+.feed-top {
+}
+.feed-center {
+    margin: 15px;
+}
+.feed-bottom {
+    display: flex;
+    width: 100%;
+    align-content: center;
+    justify-content: right;
 }
