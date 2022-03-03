@@ -5,11 +5,13 @@ pipeline {
         stage("build") {
             steps{
                 echo "building the application"
+
             }
         }
         stage("test") {
             steps{
                 echo "testing the application"
+                sh 'php artisan test'
             }
         }
         stage("deploy") {
