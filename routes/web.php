@@ -23,3 +23,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/get/post/list', [PostController::class, 'show'])->name('post');
+
+Route::post('/get/post/', [PostController::class, 'update'])->name('posts');

@@ -5498,13 +5498,11 @@ function Welcome() {
       post = _React$useState2[0],
       setPost = _React$useState2[1];
 
-  console.log(post);
   react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
     axios.get("/get/post/list").then(function (response) {
       setPost(function (prevState) {
         return response.data;
       });
-      console.log(response);
     });
   }, []);
   var messages = post.map(function (posts) {
@@ -5680,7 +5678,7 @@ function Post() {
   var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1__.useState({
     title: "",
     post: "",
-    image: "https://preview.redd.it/kaopcso5hqw61.jpg?width=640&crop=smart&auto=webp&s=cbb5b1d898cd15644f5a434366ac45965b4915d2"
+    image: "https://i.imgflip.com/30b1gx.jpg"
   }),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
       post = _React$useState4[0],
@@ -5703,7 +5701,10 @@ function Post() {
     event.preventDefault();
   }
 
-  function handleClick() {//axios put
+  function handleClick() {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post("/get/post").then(function (response) {
+      console.log(response);
+    });
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {

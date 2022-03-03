@@ -7,7 +7,7 @@ export default function Post() {
     const [post, setPost] = React.useState({
         title: "",
         post: "",
-        image: "https://preview.redd.it/kaopcso5hqw61.jpg?width=640&crop=smart&auto=webp&s=cbb5b1d898cd15644f5a434366ac45965b4915d2",
+        image: "https://i.imgflip.com/30b1gx.jpg",
     });
 
     const handleChange = (event) => {
@@ -27,7 +27,9 @@ export default function Post() {
     }
 
     function handleClick() {
-        //axios put
+        axios.post("/get/post").then((response) => {
+            console.log(response);
+        });
     }
 
     return (

@@ -50,8 +50,7 @@ class PostController extends Controller
     {
         //
         try {
-            $list = Post::all();
-            return response()->json($list);
+            return response()->json($post->all());
         } catch (Exception $e) {
             Log::error($e);
         }
@@ -78,6 +77,11 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        try {
+            return response()->json($post->all());
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 
     /**
