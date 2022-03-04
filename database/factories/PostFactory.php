@@ -20,6 +20,7 @@ class PostFactory extends Factory
             //Generate random post data from faker
             'title' => $this->faker->sentence(),
             'post' => $this->faker->paragraph(),
+            'image' => $this->faker->image('public/images', 400, 300),
         ];
     }
 }
