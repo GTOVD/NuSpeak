@@ -43,11 +43,6 @@ services:
             retries: 3
             timeout: 5s
     jenkins:
-        build:
-            context: ./docker/jenkins
-            dockerfile: Dockerfile
-            args:
-                WWWGROUP: '${WWWGROUP}'
         image: jenkins/jenkins:lts-jdk11
         privileged: true
         user: root
