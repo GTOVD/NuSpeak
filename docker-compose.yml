@@ -44,7 +44,7 @@ services:
             timeout: 5s
     jenkins:
         build:
-            context: ./docker/8.1
+            context: ./docker/jenkins
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
