@@ -23,8 +23,6 @@ services:
             - sail
         depends_on:
             - mysql
-        command:
-            - npm run watch
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -59,11 +57,6 @@ services:
         depends_on:
             - mysql
             - laravel.test
-        build:
-            context: ./vendor/laravel/sail/runtimes/8.1
-            dockerfile: Dockerfile
-            args:
-                WWWGROUP: '${WWWGROUP}'
 networks:
     sail:
         driver: bridge
