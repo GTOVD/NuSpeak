@@ -11,7 +11,6 @@ export default function Messages(props) {
                         {props.title && (
                             <h1 className="feed-postTitle">{props.title}</h1>
                         )}
-                        {console.log(props)}
                         {
                             <img
                                 //src={`/storage/${props.image}`}
