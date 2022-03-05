@@ -59,6 +59,11 @@ services:
         depends_on:
             - mysql
             - laravel.test
+        build:
+            context: ./vendor/laravel/sail/runtimes/8.1
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
 networks:
     sail:
         driver: bridge
