@@ -5610,10 +5610,10 @@ function Messages(props) {
           children: [props.title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
             className: "feed-postTitle",
             children: props.title
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-            //src={`./${props.image}`}
-            //src={props.image}
-            src: "https://i.imgflip.com/30b1gx.jpg",
+          }), console.log(props), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            //src={`/storage/${props.image}`}
+            src: props.image //src="https://i.imgflip.com/30b1gx.jpg"
+            ,
             alt: "image",
             className: "feed-image"
           }), props.post && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {

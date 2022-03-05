@@ -11,11 +11,12 @@ export default function Messages(props) {
                         {props.title && (
                             <h1 className="feed-postTitle">{props.title}</h1>
                         )}
+                        {console.log(props)}
                         {
                             <img
-                                //src={`./${props.image}`}
-                                //src={props.image}
-                                src="https://i.imgflip.com/30b1gx.jpg"
+                                //src={`/storage/${props.image}`}
+                                src={props.image}
+                                //src="https://i.imgflip.com/30b1gx.jpg"
                                 alt="image"
                                 className="feed-image"
                             />
