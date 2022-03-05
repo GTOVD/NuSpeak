@@ -8,6 +8,7 @@ pipeline {
 
                 sh 'php --version'
                 sh 'composer --version'
+                sh 'composer install'
                 sh 'cp .env.example .env'
                 //sh 'php artisan key:generate'
             }
