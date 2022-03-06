@@ -22,12 +22,9 @@ jobs:
           run: php -v
         - name: Show Composer Version
           run: composer -v
-        - name: Install laravel
+        - name: Install Laravel
           run: composer install
-        - name: Set .env
-          run: mv .env.example .env
-        - name: Test app
-          run: php artisan test
+
   deploy-app:
     needs:
       - test-app
