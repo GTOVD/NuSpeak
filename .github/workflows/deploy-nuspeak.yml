@@ -17,7 +17,7 @@ jobs:
             php-version: '8.1'
             tools: composer:v2
         - name: Say Hello!
-          run: "Hello Thomas"
+          run: echo "Hello Thomas"
         - name: Show PHP Version
           run: php -v
         - name: Show Composer Version
