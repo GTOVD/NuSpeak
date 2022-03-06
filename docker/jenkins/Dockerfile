@@ -4,14 +4,15 @@ USER root
 
 LABEL maintainer="Thomas Vickers"
 
-ARG WWWGROUP
 ARG NODE_VERSION=16
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ=UTC
 
+#sync time with laravel app docker
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+#install full laravel environment
 RUN apt-get update \
     && apt-get install -y gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python2 \
     && mkdir -p ~/.gnupg \
@@ -46,6 +47,28 @@ RUN apt-get update \
 
 RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.1
 
+#Jenkins Prerequisites
+RUN apt search openjdk
+RUN apt-get -y install openjdk-11-jdk
+
+#Download & add repository key
+RUN wget -q -O — https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+#Getting binary file into /etc/apt/sources.list.d
+RUN sh -c ‘echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list’
+
+#Updating packages
+RUN apt-get update
+
+#Installing Jenkins
+RUN apt-get -y install jenkins
+
+#Start Jenkins
+RUN service jenkins start
+
+EXPOSE 8080
+
 USER jenkins
 
+#rm  ~/.docker/config.json - ubuntu image issue
 

@@ -43,6 +43,9 @@ services:
             retries: 3
             timeout: 5s
     jenkins:
+        build:
+            context: ./docker/jenkins
+            dockerfile: Dockerfile
         image: jenkins/jenkins:lts-jdk11
         privileged: true
         user: root
@@ -52,8 +55,6 @@ services:
         volumes:
             - ~/jenkins_data:/var/jenkins_home
             - /var/run/docker.sock:/var/run/docker.sock
-        networks:
-            - sail
 networks:
     sail:
         driver: bridge
