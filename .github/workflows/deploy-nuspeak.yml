@@ -24,7 +24,9 @@ jobs:
           run: composer -v
         - name: Install laravel
           run: composer install
-        - name: test app
+        - name: Set .env
+          run: mv .env.example .env
+        - name: Test app
           run: php artisan test
   deploy-app:
     needs:
