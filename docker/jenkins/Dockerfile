@@ -48,8 +48,7 @@ RUN apt-get update \
 RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.1
 
 #Jenkins Prerequisites
-RUN apt search openjdk
-RUN apt-get -y install openjdk-11-jdk
+RUN apt-get update
 
 #Download & add repository key
 RUN wget -q -O — https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -

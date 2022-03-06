@@ -1,0 +1,24 @@
+name: The Hello World Demo
+on:
+  workflow_dispatch:
+#  push:
+#    branches:
+#      - master
+
+jobs:
+  deploy-app:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Pull My Code
+          uses: actions/checkout@v2  # A script which pull the repo that triggers this action
+        - name: Setup Environment
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: '8.1'
+            tools: composer:v2
+        - name: Say Hello!
+          run: "Hello Thomas"
+        - name: Show PHP Version
+          run: php -v
+        - name: Show Composer Version
+          run: composer -v
