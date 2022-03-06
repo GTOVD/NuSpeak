@@ -6,7 +6,7 @@ on:
 #      - master
 
 jobs:
-  deploy-app:
+  test-app:
     runs-on: ubuntu-latest
     steps:
         - name: Pull My Code
@@ -24,3 +24,13 @@ jobs:
           run: composer -v
         - name: Install laravel
           run: composer install
+        - name: test app
+          run: php artisan test
+  deploy-app:
+    needs:
+      - test-app
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploying code
+        run: echo "app getting deployed"
+
