@@ -1,15 +1,18 @@
 import axios from "axios";
 import React from "react";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 import "./../../css/app.css";
 
 export default function Post() {
-    const [title, setTitle] = React.useState("");
     const [post, setPost] = React.useState({
         title: "",
         post: "",
-        image: "https://i.imgflip.com/30b1gx.jpg",
+        image: "",
     });
-
+    const [validationError, setValidationError] = React.useState({});
+    //const navigate = useNavigate();
+    const csrf = () => axios.get("/sanctum/csrf-cookie");
     const handleChange = (event) => {
         const { name, value, type, checked } = event.target;
         setPost((prevState) => {
@@ -19,19 +22,38 @@ export default function Post() {
             };
         });
     };
-
-    React.useEffect(() => {}, []);
-
+    React.useEffect(() => {
+        async function fetchCookie() {
+            await csrf();
+        }
+        fetchCookie();
+    }, []);
     function handleSubmit(event) {
         event.preventDefault();
     }
-
-    function handleClick() {
-        axios.post("/get/post").then((response) => {
-            console.log(response);
-        });
+    async function handleClick() {
+        console.log(post);
+        await csrf();
+        await axios
+            .post("/api/post", post)
+            .then(({ data }) => {
+                Swal.fire({
+                    icon: "success",
+                    text: data.message,
+                });
+                //navigate("/");
+            })
+            .catch(({ response }) => {
+                if (response.status === 422) {
+                    setValidationError(response.data.errors);
+                } else {
+                    Swal.fire({
+                        text: response.data.message,
+                        icon: "error",
+                    });
+                }
+            });
     }
-
     return (
         <div className="feed">
             <div className="feed-contents">

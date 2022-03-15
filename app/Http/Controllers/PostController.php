@@ -11,12 +11,13 @@ class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param  \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $post = Post::all();
+        return response()->json($post->all());
     }
 
     /**
@@ -27,6 +28,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return redirect('/')->with('create', 'created work!');
     }
 
     /**
@@ -38,6 +40,21 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
+        $request->validate([
+            'title' => 'required|max:255',
+            'post' => 'nullable|max:10000',
+            'image' => 'nullable',
+        ]);
+        $post = new Post([
+            'title' => $request->get('title'),
+            'post' => $request->get('post'),
+            'image' => $request->get('image'),
+        ]);
+        $post->save();
+
+        return response()->json($post);
+        //return redirect('/')->with('success', 'post saved!');
     }
 
     /**
@@ -49,11 +66,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
-        try {
-            return response()->json($post->all());
-        } catch (Exception $e) {
-            Log::error($e);
-        }
+        //return redirect('/')->with('show', 'show work!');
+        return response()->json($post);
     }
 
     /**
@@ -65,6 +79,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        return response()->json($post);
     }
 
     /**
@@ -77,11 +92,19 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
-        try {
-            return response()->json($post->all());
-        } catch (Exception $e) {
-            Log::error($e);
-        }
+        $request->validate([
+            'title' => 'required|max:255',
+            'post' => 'nullable|max:10000',
+            'image' => 'nullable',
+        ]);
+
+        $post = Post::find($post);
+        $post->title =  $request->get('title');
+        $post->post = $request->get('post');
+        $post->image = $request->get('image');
+        $post->save();
+        return response()->json($post);
+        //return redirect('/')->with('success', 'Contact updated!');
     }
 
     /**
@@ -93,5 +116,8 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $post = Post::find($post);
+        $post->delete();
+        return redirect('/')->with('success', 'Contact deleted!');
     }
 }

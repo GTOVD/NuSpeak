@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/get/post/list', [PostController::class, 'show'])->name('post');
-
-Route::post('/get/post/', [PostController::class, 'update'])->name('posts');
+Route::get('/api/post', [PostController::class, 'index']);
+Route::get('/api/post/create', [PostController::class, 'create']);
+Route::post('/api/post', [PostController::class, 'store']);
+Route::get('/api/post/{post}', [PostController::class, 'show']);
+Route::get('/api/post/{post}/edit', [PostController::class, 'edit']);
+Route::put('/api/post/{post}', [PostController::class, 'update']);
+Route::delete('/api/post/{post}', [PostController::class, 'destroy']);

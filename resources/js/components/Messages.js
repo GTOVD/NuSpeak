@@ -13,9 +13,7 @@ export default function Messages(props) {
                         )}
                         {
                             <img
-                                //src={`/storage/${props.image}`}
                                 src={props.image}
-                                //src="https://i.imgflip.com/30b1gx.jpg"
                                 alt="image"
                                 className="feed-image"
                             />
